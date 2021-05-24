@@ -35,8 +35,9 @@ class Launch extends Component {
                                 return (<div>Encountered Error</div>)
                             } else {
                                 console.log(data);
-                                const {mission_name, flight_number, launch_year, launch_success} = data.launch;
-                                const {rocket_id, rocket_name, rocket_type} = data.launch.rocket;
+                                const {mission_name, flight_number, launch_year, launch_success,
+                                    rocket: {rocket_id, rocket_name, rocket_type}
+                                } = data.launch;
                                 return (
                                     <div>
                                         <h1 className="display-4 my-3">
@@ -45,8 +46,8 @@ class Launch extends Component {
                                         </h1>
                                         <h4 className="my-3">Launch Details</h4>
                                         <ul className="list-group">
-                                            <li className="list-group-item">{flight_number}</li>
-                                            <li className="list-group-item">{launch_year}</li>
+                                            <li className="list-group-item">Flight Number: {flight_number}</li>
+                                            <li className="list-group-item">Launch Year: {launch_year}</li>
                                             <li className="list-group-item">
                                                 Launch Successful:
                                                 <span className={classNames({
@@ -61,9 +62,9 @@ class Launch extends Component {
                                             </li>
                                         </ul>
                                         <h4 className="my-3">Rocket Details</h4>
-                                        <li className="list-group-item">{rocket_id}</li>
-                                        <li className="list-group-item">{rocket_name}</li>
-                                        <li className="list-group-item">{rocket_type}</li>
+                                        <li className="list-group-item">Rocket ID: {rocket_id}</li>
+                                        <li className="list-group-item">Rocket Name: {rocket_name}</li>
+                                        <li className="list-group-item">Rocket Type: {rocket_type}</li>
                                     </div>
                                 )
                             }
