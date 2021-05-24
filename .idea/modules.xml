@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GraphQL-testing.iml" filepath="$PROJECT_DIR$/.idea/GraphQL-testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SpaceX-Launches-GraphQL-React-Apollo/.idea/SpaceX-Launches-GraphQL-React-Apollo.iml" filepath="$PROJECT_DIR$/../SpaceX-Launches-GraphQL-React-Apollo/.idea/SpaceX-Launches-GraphQL-React-Apollo.iml" />
     </modules>
   </component>
 </project>
