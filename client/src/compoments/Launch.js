@@ -4,9 +4,9 @@ import { Query } from 'react-apollo';
 import classNames from "classnames";
 import {Link} from "react-router-dom";
 
-const LAUNCH_QUERY = (flight_number) => gql`
-    query LaunchesQuery {
-        launch(flight_number: ${flight_number}) {
+const LAUNCH_QUERY = gql`
+    query LaunchQuery($flight_number: Int!) {
+        launch(flight_number: $flight_number) {
             mission_name
             flight_number
             launch_year
@@ -22,9 +22,11 @@ const LAUNCH_QUERY = (flight_number) => gql`
 
 class Launch extends Component {
     render() {
+        let {flight_number} = this.props.match.params;
+        flight_number = parseInt(flight_number);
         return (
-            <div>
-                <Query query={LAUNCH_QUERY(this.props.match.params.flight_number)}>
+            <Fragment>
+                <Query query={LAUNCH_QUERY} variables={{flight_number}}>
                     {
                         ({loading, error, data}) => {
                             if (loading) return <h4>Loading...</h4>;
@@ -70,7 +72,7 @@ class Launch extends Component {
                 </Query>
                 <hr/>
                 <Link to={`/`} className="btn btn-secondary">Back</Link>
-            </div>
+            </Fragment>
         );
     }
 }
