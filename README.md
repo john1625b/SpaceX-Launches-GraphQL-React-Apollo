@@ -11,4 +11,4 @@ Simultaneously
 
 Runs the front end client on http://localhost:3000 and
 
-Runs the back end GraphQL on http://localhost:5000
+Runs the back end GraphQL on http://localhost:5001
