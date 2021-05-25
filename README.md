@@ -3,7 +3,7 @@ Lists SpaceX Rocket Launches, their statuses and rocket information
 
 # start
 ### `npm start`
-Runs the back end GraphQL  http://localhost:5000
+Runs the back end GraphQL  http://localhost:5001
 
 # dev
 ### `npm run dev`
