@@ -8,7 +8,7 @@ import Launches from "./compoments/Launches";
 import Launch from "./compoments/Launch";
 
 const client = new ApolloClient({
-    uri: 'http://localhost:5001/graphql'
+    uri: '/graphql'
 });
 
 class App extends Component {
