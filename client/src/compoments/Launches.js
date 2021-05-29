@@ -24,7 +24,13 @@ class Launches extends Component {
                 <Query query={LAUNCHES_QUERY}>
                     {
                         ({loading, error, data}) => {
-                            if (loading) return <h4>Loading...</h4>;
+                            if (loading) return (
+                                <div className="d-flex justify-content-center">
+                                    <div className="spinner-border m-5" style={{width: '10rem', height: '10rem'}} role="status">
+                                        <span className="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            );
                             if (error) {
                                 console.log(error);
                                 return <div>Encountered Error</div>

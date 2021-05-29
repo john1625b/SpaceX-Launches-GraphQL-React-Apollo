@@ -1,0 +1,18 @@
+Index: client/src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {Component} from 'react';\nimport ApolloClient from 'apollo-boost';\nimport {ApolloProvider} from 'react-apollo'\nimport {BrowserRouter as Router, Route} from 'react-router-dom';\nimport './App.css';\nimport logo from './SpaceX-logo.png'\nimport Launches from \"./compoments/Launches\";\nimport Launch from \"./compoments/Launch\";\n\nconst client = new ApolloClient({\n    uri: '/graphql'\n});\n\nclass App extends Component {\n    render() {\n        return (\n            <ApolloProvider client={client}>\n                <Router>\n                    <div className=\"container\">\n                        <img src={logo} alt=\"SpaceX\" style={{width: 300, display: 'block', margin: 'auto'}}/>\n                        <Route exact path=\"/\" component={Launches} />\n                        <Route exact path=\"/launch/:flight_number\" component={Launch} />\n                    </div>\n                </Router>\n            </ApolloProvider>\n        );\n    }\n}\n\nexport default App;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- client/src/App.js	(revision 7eec8d160cf8090cadac5ad2ae08ab0b468a6527)
++++ client/src/App.js	(date 1622113877020)
+@@ -8,7 +8,7 @@
+ import Launch from "./compoments/Launch";
+ 
+ const client = new ApolloClient({
+-    uri: '/graphql'
++    uri: 'http://localhost:5001/graphql'
+ });
+ 
+ class App extends Component {
