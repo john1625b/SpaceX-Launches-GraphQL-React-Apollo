@@ -1,8 +1,10 @@
-import React, {Component, Fragment} from 'react';
+import React, { Fragment } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import LaunchItem from "./LaunchItem";
 import MissionKey from "./MissionKey";
+import {useQuery} from "@apollo/react-hooks";
+import BundleBuilder from "./BundleBuilder";
 
 const LAUNCHES_QUERY = gql`
     query LaunchesQuery {
@@ -15,11 +17,13 @@ const LAUNCHES_QUERY = gql`
     }
 `;
 
-class Launches extends Component {
-    render() {
+function Launches(props) {
+        const { data } = useQuery(LAUNCHES_QUERY);
+        console.log(data);
         return (
             <Fragment>
                 <h1 className="display-4 my-3">Launches</h1>
+                <BundleBuilder/>
                 <MissionKey/>
                 <Query query={LAUNCHES_QUERY}>
                     {
@@ -50,7 +54,6 @@ class Launches extends Component {
                 </Query>
             </Fragment>
         );
-    }
 }
 
 export default Launches;
